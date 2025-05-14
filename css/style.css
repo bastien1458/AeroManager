@@ -1,1 +1,121 @@
-
+    * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background-color: #d9d9d9;
+            font-family: Arial, sans-serif;
+            padding-left: 10%;
+        }
+        
+        header {
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            border-bottom: 2px solid #ccc;
+            margin-bottom: 2rem;
+        }
+        
+        header h1 {
+            text-align: left;
+        }
+        
+        nav {
+            position: fixed;
+            background-color: #1d2226;
+            height: 100vh;
+            width: 10%;
+            left: 0;
+            top: 0;
+            padding-top: 6rem;
+            border-top-right-radius: 1.7rem;
+            z-index: 100;
+        }
+        
+        .text-section {
+            border-top: 1px solid #ccc;
+            padding: 1rem;
+        }
+        
+        .text-section a {
+            display: block;
+            margin-top: 1rem;
+            text-decoration: none;
+            color: #FFFF;
+            padding: 0.5rem 1rem;
+            transition: background-color 0.3s;
+        }
+        
+        .text-section a:hover {
+            background-color: #2d3236;
+            border-radius: 0.5rem;
+        }
+        
+        
+        .add-flight {
+          
+            padding: 1.5rem;
+            border-radius: 1rem;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+        }
+        
+        .add-flight form {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        .add-flight input[type="text"] {
+            padding: 0.8rem;
+            border: 1px solid #ccc;
+            border-radius: 0.5rem;
+            width: 20%;
+        }
+        
+        .add-flight input[type="submit"] {
+            padding: 0.8rem 1.5rem;
+            background-color: #1d2226;
+            color: white;
+            border: none;
+            border-radius: 0.5rem;
+        }
+        
+        .flight-status {
+            background-color: #fff;
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            overflow-x: auto;
+            margin-bottom: 2rem;
+        }
+        
+        .flight-status table {
+            width: 100%;
+            border-collapse: collapse;
+            font-family: Arial, sans-serif;
+            background-color: #ffffff;
+        }
+        
+        .flight-status thead {
+            background-color: #1d2226;
+            color: white;
+            text-transform: uppercase;
+        }
+        
+        .flight-status th, .flight-status td {
+            padding: 1rem;
+            text-align: center;
+            border: 1px solid #ccc;
+        }
+        
+        .flight-status tbody tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        
+        .flight-status tbody tr:hover {
+            background-color: #f1f1f1;
+            cursor: default;
+        }
