@@ -38,10 +38,10 @@ while ($row = $result->fetch_assoc()) {
     <nav>
         <div class="text-section">
             <a href="">Tableau de bord</a>
-            <a href="./avions.php">Avions</a>
-            <a href="">Vols</a>
-            <a href="">Personnel</a>
-            <a href="">Passagers</a>
+            <a href="./Avions.php">Avions</a>
+            <a href="./vols.php">Vols</a>
+            <a href="./Personnel.php">Personnel</a>
+            <a href="./Passagers.php">Passagers</a>
             <a href="">Billets</a>
             <a href="">Pistes</a>
             <a href="">Tâches</a>
@@ -73,6 +73,10 @@ while ($row = $result->fetch_assoc()) {
             <input type="text" placeholder="Lieux d'arrivée" name="LieuArrive">
             <input type="text" placeholder="Heure de départ" name="HeureDepart">
             <input type="text" placeholder="Heure d'arrivée" name="HeureArrive">
+            <input type="text" placeholder="IdPorte" name="idPorte">
+            <input type="text" placeholder="IdCompagnie" name="idCompagnie">
+            <input type="text" placeholder="IdAvion" name="idAvion">
+            <input type="text" placeholder="IdEtat" name="idEtat">
             <input type="submit" placeholder="Ajouter" name="insert-button">  
         </form>
     </div> 
@@ -84,14 +88,21 @@ while ($row = $result->fetch_assoc()) {
             $lieuDepart = $_POST['LieuDepart'];
             $lieuArrive = $_POST['LieuArrive'];
             $heureDepart = $_POST['HeureDepart'];
-            $heureArrive = $_POST['HeureArrive'];  
+            $heureArrive = $_POST['HeureArrive'];
+            $idPorte = $_POST['idPorte'];
+            $idCompagnie = $_POST['idCompagnie'];
+            $idAvion = $_POST['idAvion'];
+            $idEtat = $_POST['idEtat'];
             
-            $addRequest = "INSERT INTO Vol (LieuDepart, LieuArrive, HeureDepart, HeureArrive) 
-                    VALUES ('$lieuDepart', '$lieuArrive', '$heureDepart', '$heureArrive')";   
+            
+            $addRequest = "INSERT INTO Vol (LieuDepart, LieuArrive, HeureDepart, HeureArrive, idPorte, idCompagnie,
+            idAvion, idEtat) 
+                    VALUES ('$lieuDepart', '$lieuArrive', '$heureDepart', '$heureArrive','$idPorte','$idCompagnie',
+                            '$idAvion','$idEtat')";   
             
             if ($liaison->query($addRequest)) {
                 echo "Vol ajouté avec succès.";
-                header("Location: ".$_SERVER['PHP_SELF']); // Pour recharger la page et voir les changements
+                header("Location: ".$_SERVER['PHP_SELF']); 
                 exit;
             }
         } 
@@ -106,9 +117,10 @@ while ($row = $result->fetch_assoc()) {
                     <th>Arrivée</th>
                     <th>Heure de départ</th>
                     <th>Heure d'arrivée</th>
-                    <th>idEtat</th>
+                    <th>idPorte</th>
+                    <th>idCompagnie</th>
                     <th>idAvion</th>
-                    <th>idPiste</th>
+                    <th>idEtat</th>
                 </tr>
             </thead>
             
