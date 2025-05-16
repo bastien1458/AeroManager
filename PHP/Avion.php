@@ -3,7 +3,7 @@ session_start();
 require_once('BDD.php');
 
 
-$sql = "SELECT * FROM avion";
+$sql = "SELECT * FROM Avion"; 
 
 $result = $liaison->query($sql);
 
@@ -11,11 +11,10 @@ if (!$liaison) {
     die("Erreur dans la requête : " . $liaison->error);
 }
 
-
-$vols = [];
+$avions = [];
 
 while ($row = $result->fetch_assoc()) {
-    $vols[] = $row;
+    $avions[] = $row;
 }
 ?>
 
@@ -24,8 +23,8 @@ while ($row = $result->fetch_assoc()) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vols</title>
-    <link rel="stylesheet" href="../css/style.css">
+    <title>Avions</title>
+    <link rel="stylesheet" href="../css/style.css"> 
 </head>
 <body>
 
@@ -37,9 +36,9 @@ while ($row = $result->fetch_assoc()) {
     <nav>
         <div class="text-section">
             <a href="">Tableau de bord</a>
-            <a href="">Avions</a>
+            <a href="./Avions.php">Avions</a>
             <a href="./vols.php">Vols</a>
-            <a href="">Personnel</a>
+            <a href="./Personnel.php">Personnel</a>
             <a href="">Passagers</a>
             <a href="">Billets</a>
             <a href="">Pistes</a>
@@ -90,12 +89,12 @@ while ($row = $result->fetch_assoc()) {
             $Historique = $_POST['Historique'];  
 
             
-            $addRequest = "INSERT INTO avion (Modele, CapacitePassagers, NumeroSerie, Immatriculation, Statut, Historique) 
+            $addRequest = "INSERT INTO Avion (Modele, CapacitePassagers, NumeroSerie, Immatriculation, Statut, Historique) 
                     VALUES ('$Modele', '$CapacitePassagers', '$NumeroSerie', '$Immatriculation', '$Statut', '$Historique')";   
             
             if ($liaison->query($addRequest)) {
                 echo "Avion ajouté avec succès.";
-                header("Location: ".$_SERVER['PHP_SELF']); 
+                header("Location: ".$_SERVER['PHP_SELF']);
                 exit;
             }
         }
@@ -115,15 +114,15 @@ while ($row = $result->fetch_assoc()) {
             </tr>
         </thead>
         <tbody>
-            <?php foreach ($vols as $vol): ?>
+            <?php foreach ($avions as $avion): ?>
             <tr>
-                <td><?= $vol['idAvion'] ?></td>
-                <td><?= $vol['Modele'] ?></td>
-                <td><?= $vol['CapacitePassagers'] ?></td>
-                <td><?= $vol['NumeroSerie'] ?></td>
-                <td><?= $vol['Immatriculation'] ?></td>
-                <td><?= $vol['Statut'] ?></td>
-                <td><?= $vol['Historique'] ?></td>
+                <td><?= $avion['idAvion'] ?></td>
+                <td><?= $avion['Modele'] ?></td>
+                <td><?= $avion['CapacitePassagers'] ?></td>
+                <td><?= $avion['NumeroSerie'] ?></td>
+                <td><?= $avion['Immatriculation'] ?></td>
+                <td><?= $avion['Statut'] ?></td>
+                <td><?= $avion['Historique'] ?></td>
             </tr>
             <?php endforeach; ?>
         </tbody>
