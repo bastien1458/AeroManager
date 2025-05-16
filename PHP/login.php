@@ -20,13 +20,19 @@ else {
 
 $hashedPassword = hash('sha256', $password);
 
-$request_login = mysqli_query($liaison, "SELECT * FROM utilisateurs Where username = '$username' AND pwd ='$hashedPassword'");
+$request_login = mysqli_query($liaison, "SELECT * FROM Utilisateurs Where username = '$username' AND pwd ='$hashedPassword'");
 $ligne = mysqli_fetch_assoc($request_login);
 
 if($ligne){
-    header("Location: ./avion.php");
+    header("Location: ./Avions.php");
     exit();
 }
+
+else{
+    echo("Nom d'utilisateurs ou mots de passe incorectes");
+}
+?>
+
 
 else{
     echo("Nom d'utilisateurs ou mots de passe incorectes");
