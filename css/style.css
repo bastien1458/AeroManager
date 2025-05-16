@@ -7,7 +7,7 @@
         body {
             background-color: #d9d9d9;
             font-family: Arial, sans-serif;
-            padding-left: 10%;
+            padding-left: 10%; 
         }
         
         header {
@@ -53,6 +53,27 @@
             border-radius: 0.5rem;
         }
         
+       .form {
+            position: absolute;
+            top: 50%;
+            left: 50%; 
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            width: 90%;
+            max-width: 400px;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            text-align: center;
+        }
+
+
+        .form input {
+            margin-top: 1rem;
+        }
         
         .add-flight {
           
